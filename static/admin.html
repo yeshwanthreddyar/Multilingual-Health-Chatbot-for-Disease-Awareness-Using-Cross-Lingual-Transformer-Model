@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthBot Admin</title>
+  <style>
+    :root { --bg: #0f1419; --surface: #1a2332; --border: #2d3a4f; --primary: #00d4aa; --text: #e6edf3; --text-muted: #8b949e; --danger: #f85149; --radius: 12px; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 1rem; }
+    h1 { color: var(--primary); }
+    table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: var(--radius); overflow: hidden; }
+    th, td { padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    th { background: rgba(0,212,170,0.1); }
+    .error { color: var(--danger); }
+    .filters { margin: 1rem 0; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .filters label { display: flex; align-items: center; gap: 0.5rem; }
+    a { color: var(--primary); }
+  </style>
+</head>
+<body>
+  <h1>HealthBot Admin</h1>
+  <p><a href="/">← Back to Chat</a></p>
+  <div id="authMsg" class="error">Loading...</div>
+  <div id="adminContent" style="display:none;">
+    <div class="filters">
+      <label><input type="checkbox" id="healthOnly" /> Health-related only</label>
+      <button type="button" id="refreshBtn">Refresh</button>
+    </div>
+    <h2>Logs</h2>
+    <div id="logsTable"></div>
+    <h2>Stats</h2>
+    <pre id="stats"></pre>
+    <button type="button" id="retrainBtn">Retrain from logs</button>
+    <span id="retrainStatus"></span>
+    <h2>Users</h2>
+    <div id="usersTable"></div>
+  </div>
+
+  <script>
+    const API = window.location.origin + '/api';
+    const token = localStorage.getItem('healthbot_token');
+    const role = localStorage.getItem('healthbot_role');
+
+    if (!token || role !== 'admin') {
+      document.getElementById('authMsg').textContent = 'Admin login required. Please log in as admin.';
+      document.getElementById('authMsg').innerHTML += ' <a href="/">Go to login</a>';
+    } else {
+      document.getElementById('authMsg').style.display = 'none';
+      document.getElementById('adminContent').style.display = 'block';
+
+      const headers = { 'Authorization': 'Bearer ' + token };
+
+      async function loadLogs() {
+        const healthOnly = document.getElementById('healthOnly').checked;
+        const url = API + '/admin/logs?limit=200' + (healthOnly ? '&health_only=true' : '');
+        const r = await fetch(url, { headers });
+        if (!r.ok) { document.getElementById('authMsg').textContent = 'Unauthorized'; return; }
+        const logs = await r.json();
+        const table = document.getElementById('logsTable');
+        table.innerHTML = '<table><thead><tr><th>Time</th><th>User</th><th>Message</th><th>Intent</th><th>Health</th><th>Response</th></tr></thead><tbody>' +
+          logs.map(l => '<tr><td>' + (l.created_at || '').slice(0,19) + '</td><td>' + (l.user_id || '-') + '</td><td>' + (l.message || '').slice(0,80) + '</td><td>' + (l.intent || '-') + '</td><td>' + (l.is_health_related ? 'Yes' : '') + '</td><td>' + (l.response || '').slice(0,100) + '</td></tr>').join('') +
+          '</tbody></table>';
+      }
+
+      async function loadStats() {
+        const r = await fetch(API + '/admin/logs/stats', { headers });
+        if (r.ok) {
+          const s = await r.json();
+          document.getElementById('stats').textContent = JSON.stringify(s, null, 2);
+        }
+      }
+
+      async function loadUsers() {
+        const r = await fetch(API + '/admin/users', { headers });
+        if (r.ok) {
+          const users = await r.json();
+          document.getElementById('usersTable').innerHTML = '<table><thead><tr><th>ID</th><th>Email</th><th>Role</th><th>Created</th></tr></thead><tbody>' +
+            users.map(u => '<tr><td>' + u.id + '</td><td>' + u.email + '</td><td>' + u.role + '</td><td>' + u.created_at + '</td></tr>').join('') +
+            '</tbody></table>';
+        }
+      }
+
+      document.getElementById('healthOnly').addEventListener('change', loadLogs);
+      document.getElementById('refreshBtn').addEventListener('click', () => { loadLogs(); loadStats(); loadUsers(); });
+      document.getElementById('retrainBtn').addEventListener('click', async () => {
+        const el = document.getElementById('retrainStatus');
+        el.textContent = 'Running...';
+        try {
+          const r = await fetch(API + '/admin/retrain-intent', { method: 'POST', headers });
+          const d = await r.json();
+          el.textContent = d.status === 'ok' ? 'Done.' : ('Error: ' + (d.message || d.stderr || ''));
+        } catch (e) {
+          el.textContent = 'Failed: ' + e.message;
+        }
+      });
+      loadLogs();
+      loadStats();
+      loadUsers();
+    }
+  </script>
+</body>
+</html>

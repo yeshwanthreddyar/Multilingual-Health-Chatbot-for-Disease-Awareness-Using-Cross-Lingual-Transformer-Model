@@ -1,0 +1,29 @@
+# Multilingual symptom lexicon (sample) – extend for 15 languages
+# Format: phrase<TAB>ICD-10/SNOMED-style code
+# Add colloquial phrases in Hindi, Bengali, Telugu, Tamil, etc.
+
+fever	R50
+headache	R51
+cough	R05
+cold	J00
+body pain	R52
+stomach pain	R10
+diarrhea	R19
+vomiting	R11
+weakness	R53
+breathing difficulty	R06
+chest pain	R07
+rash	R21
+sore throat	R07.0
+runny nose	R09.8
+loss of appetite	R63
+dizziness	R42
+fatigue	R53
+joint pain	M25.5
+back pain	M54
+nausea	R11
+swelling	R22
+bleeding	R58
+red eyes	H10
+ear pain	H92
+toothache	K08.8

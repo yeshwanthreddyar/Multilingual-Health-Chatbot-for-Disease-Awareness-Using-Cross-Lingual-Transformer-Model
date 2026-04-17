@@ -1,0 +1,12 @@
+{
+  "other": 550,
+  "skin_infection": 150,
+  "respiratory_infection": 100,
+  "gastroenteritis": 100,
+  "typhoid": 50,
+  "dengue": 50,
+  "common_cold": 50,
+  "hypertension": 50,
+  "malaria": 50,
+  "diabetes_awareness": 50
+}

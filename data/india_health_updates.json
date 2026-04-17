@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2024-02-14",
+    "title": "MoHFW - Seasonal disease advisory",
+    "summary": "Increased flu and dengue activity in several states. State health departments advised to strengthen surveillance.",
+    "tags": ["flu", "dengue", "surveillance"],
+    "region": "India",
+    "source": "MoHFW"
+  },
+  {
+    "date": "2024-02-12",
+    "title": "ICMR - Typhoid vaccination drive",
+    "summary": "Typhoid conjugate vaccine recommended in high-burden areas. Check with local health centre for availability.",
+    "tags": ["typhoid", "vaccination", "india"],
+    "region": "India",
+    "source": "ICMR"
+  },
+  {
+    "date": "2024-02-08",
+    "title": "Heat wave preparedness - early advisory",
+    "summary": "States advised to prepare heat action plans. Stay hydrated, avoid outdoor exposure during peak hours.",
+    "tags": ["heat", "hydration", "prevention"],
+    "region": "India",
+    "source": "MoHFW"
+  }
+]

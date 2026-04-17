@@ -1,0 +1,26 @@
+[
+  {
+    "date": "2024-02-15",
+    "title": "Seasonal influenza - vaccination recommendations",
+    "summary": "WHO recommends annual flu vaccination for high-risk groups. Northern hemisphere 2024-25 vaccine now available.",
+    "tags": ["flu", "influenza", "vaccination"],
+    "region": "Global",
+    "source": "WHO"
+  },
+  {
+    "date": "2024-02-10",
+    "title": "Dengue - global increase in cases",
+    "summary": "Dengue cases rising in tropical regions. Mosquito control and early detection remain key prevention measures.",
+    "tags": ["dengue", "mosquito", "prevention"],
+    "region": "Global",
+    "source": "WHO"
+  },
+  {
+    "date": "2024-02-05",
+    "title": "Respiratory infections - hygiene guidance",
+    "summary": "Hand hygiene, mask use in crowded settings, and ventilation reduce spread of respiratory illnesses.",
+    "tags": ["respiratory", "hygiene", "prevention"],
+    "region": "Global",
+    "source": "WHO"
+  }
+]

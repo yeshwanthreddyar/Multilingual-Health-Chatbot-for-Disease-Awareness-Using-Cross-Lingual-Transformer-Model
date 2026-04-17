@@ -1,0 +1,128 @@
+[
+  {
+    "id": "CASE-000001",
+    "region": "13.0613",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-03T20:49:38Z"
+  },
+  {
+    "id": "CASE-000002",
+    "region": "13.0612",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-03T20:58:13Z"
+  },
+  {
+    "id": "CASE-000003",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-03T21:18:01Z"
+  },
+  {
+    "id": "CASE-000004",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-03T21:56:02Z"
+  },
+  {
+    "id": "CASE-000005",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-04T17:25:23Z"
+  },
+  {
+    "id": "CASE-000006",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-04T18:10:42Z"
+  },
+  {
+    "id": "CASE-000007",
+    "region": "Bangalore",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-30T18:35:32Z"
+  },
+  {
+    "id": "CASE-000008",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-03-30T18:42:48Z"
+  },
+  {
+    "id": "CASE-000009",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-04-08T08:00:42Z"
+  },
+  {
+    "id": "CASE-000010",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-04-08T08:01:21Z"
+  },
+  {
+    "id": "CASE-000011",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-04-08T09:35:03Z"
+  },
+  {
+    "id": "CASE-000012",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-04-08T09:41:29Z"
+  },
+  {
+    "id": "CASE-000013",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-04-08T09:41:58Z"
+  },
+  {
+    "id": "CASE-000014",
+    "region": "India",
+    "disease": "malaria",
+    "source": "self_report",
+    "user_id": null,
+    "severity": "unknown",
+    "date_reported": "2026-04-17T07:56:57Z"
+  }
+]
